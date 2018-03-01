@@ -1,0 +1,11 @@
+{
+  "name": "node_email",
+  "version": "0.0.0",
+  "private": true,   
+  "dependencies": {
+    "express": "~4.15.2",
+    "nodemailer": "0.7.1"
+    }
+}
+
+

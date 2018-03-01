@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Contacto</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var user, to, subject, text;
+            $("#send_email").click(function () {
+                // resive el email.
+                to = "correo@gmail.com";
+                name = $("#name").val();
+                user = $("#user_email").val();
+                text = $("#textarea1").val();
+                affair = $("#affair").val();
+               
+                $.get("/send", {
+                    to: to,
+                    name: name,
+                    user: user,
+                    affair: affair,
+                    text: text
+                    
+                }, function (data) {
+                    if (data == "sent") {
+                        console.log("Email sent");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+    <div id="form" class=" container center">
+
+        <form id="name-field" class="col s12">
+       
+    <!-- Start your project here-->
+   <div class="outer">
+    <div class="middle">
+        <div class="inner-register">
+            <div class="card-body">
+                <!--Contacto -->
+            <form>
+                    <p style="text-align:right">
+                        <a href="/" title="Regresar al login">
+                            <i class="fa fa-times fa-1x" aria-hidden="true"></i>
+                        </a>
+                    </p>
+                    <p class="h4 text-center mb-4">Contacto</p>
+                
+                    <!-- Material input text -->
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input type="text" id="name" class="form-control" required/>
+                        <label for="name">Nombre</label>
+                    </div>
+                
+                    <!-- Material input email -->
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input type="email" id="user_email" class="form-control" required/>
+                        <label for="user_email">e-mail</label>
+                    </div>
+                
+                    <div class="md-form">
+                            <i class="fa fa-tag prefix grey-text"></i>
+                            <input type="text" id="affair" class="form-control" required/>
+                            <label for="affair">Asunto</label>
+                        </div>
+                        
+                        <!-- Material textarea message -->
+                        <div class="md-form">
+                            <i class="fa fa-pencil prefix grey-text"></i>
+                            <textarea type="text" id="textarea1" class="form-control md-textarea" rows="3"></textarea>
+                            <label for="textarea1">Mensaje</label>
+                        </div>
+                
+                    <div class="text-center mt-4">
+                        <button id="send_email" href="#modal1" class="btn btn-default btn-block boton waves-effect waves-light" type="submit">Enviar</button>
+                    </div>                    
+                </form>         
+    <!-- Contacto-->
+            </div>
+        </div>
+    </div>
+   </div>
+    <!-- /Start your project here-->
+
+        
+
+     
+
+    </div>
+     <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+</body>
+</html>
